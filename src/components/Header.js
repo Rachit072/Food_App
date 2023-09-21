@@ -5,22 +5,12 @@ const Title = () =>(
     <a href="/"><img className="logo" src={logo} alt="TastyTracks" /></a> 
 ); 
 
-
-
 const Header =()=>{
-    const [searchInput,setSearchInput] = useState("")
-
+    const[isLogged,setIslogged] = useState(true);
 
     return <>
     <div className="header">
         <Title/>
-        <div className="searchbar-container">
-            <input className="searchbar" type="text" 
-                value={searchInput}
-                placeholder="Search For Restaurant, Cuisine or Dish....."
-                onChange={(e)=>setSearchInput(e.target.value)}
-            />
-        </div>
         <div className="nav-items">
            <ul>
                 <li>Home</li>
@@ -29,6 +19,10 @@ const Header =()=>{
                 <li>Cart</li>
             </ul> 
         </div>
+        {   isLogged ? (<button className="login-btn" onClick={()=>{setIslogged(false)}}>LogIn</button>
+            ):(
+            <button className="login-btn" onClick={()=>{setIslogged(true)}} >LogOut</button>
+        )}
     </div>
     </>
 }
