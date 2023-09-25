@@ -19,6 +19,18 @@ export default function Body() {
     getRestaurants()
   },[])
   
+  const debounce = (func, delay) => {
+    let timeoutId;
+    return function (...args) {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      timeoutId = setTimeout(() => {
+        func(...args);
+      }, delay);
+    };
+  };
+
   async function getRestaurants() {
     try {
       const response = await fetch(
@@ -36,7 +48,11 @@ export default function Body() {
       console.error("Error fetching restaurant data:", error);
     }
   }
-  
+
+  const handleSearch = debounce((term) => {
+    const data = filterData(term, restaurants);
+    setFilteredRestaurants(data);
+  }, 1000);
   
 
   return restaurants.length === 0 ? (<Shimmer/>
@@ -46,14 +62,19 @@ export default function Body() {
         <input className="searchbar" type="text" 
                 value={searchInput}
                 placeholder="Search For Restaurant, Cuisine or Dish....."
-                onChange={(e)=>setSearchInput(e.target.value)}
+                onChange={(e)=>
+                  { const searchTerm = e.target.value
+                    setSearchInput(searchTerm)
+                    handleSearch(searchTerm)
+                  }
+                }
         />
-        <button className="searchbtn"
+        {/* <button className="searchbtn"
           onClick={()=>{
             const data = filterData(searchInput,restaurants)
             setFilteredRestaurants(data)
           }}
-        >Search</button>
+        >Search</button> */}
       </div>
       <div className='restaurant-List'>
       { filteredRestaurants.map((restaurant)=>{

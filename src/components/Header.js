@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../Images/TastyTracks.png"
+import logo from "../assets/TastyTracks.png"
 
 const Title = () =>(
     <a href="/"><img className="logo" src={logo} alt="TastyTracks" /></a> 

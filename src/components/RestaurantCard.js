@@ -1,6 +1,6 @@
 import React from 'react'
 import { IMG } from '../config'
-import star from "../Images/star.png"
+import star from "../assets/star.png"
 import Skeleton from 'react-loading-skeleton'
 
 export const RestaurantCard=({
