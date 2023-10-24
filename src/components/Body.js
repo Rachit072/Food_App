@@ -3,12 +3,7 @@ import { restaurantList } from '../config'
 import {RestaurantCard }from './RestaurantCard'
 import Shimmer from './Shimmer'
 import {Link} from 'react-router-dom';
-
-function filterData(searchInput,restaurants){ 
-  const filteredData = restaurants.filter((restaurant)=>
-    restaurant.info.name.toLowerCase().includes(searchInput))
-  return filteredData
-}
+import { filterData } from '../utils/utils';
 
 
 export default function Body() {

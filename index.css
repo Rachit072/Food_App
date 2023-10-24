@@ -62,3 +62,7 @@
     width: 100px;
     border-radius: 50px;
 }
+.MenuContainer{
+    display: flex;
+    justify-content: space-evenly;
+}
