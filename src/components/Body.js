@@ -4,6 +4,7 @@ import {RestaurantCard }from './RestaurantCard'
 import Shimmer from './Shimmer'
 import {Link} from 'react-router-dom';
 import { filterData } from '../utils/utils';
+import useOnline from '../utils/useOffline';
 
 
 export default function Body() {
@@ -11,6 +12,7 @@ export default function Body() {
   const [restaurants,setRestaurants] = useState([])
   const [filteredRestaurants,setFilteredRestaurants] = useState([])
   
+
   useEffect(()=>{
     getRestaurants()
   },[])
@@ -45,6 +47,13 @@ export default function Body() {
     }
   }
 
+  const online = useOnline();
+  if(!online){
+      return (
+          <h1>Check Your Internet Connection!</h1>
+      )
+  }
+  
   const handleSearch = debounce((term) => {
     const data = filterData(term, restaurants);
     setFilteredRestaurants(data);
