@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
+import QuickMart from "./components/QuickMart";
 import RestaurantDetails from "./components/RestaurantDetails";
 
 const App=()=>{
@@ -34,6 +35,10 @@ const appRouter = createBrowserRouter([
             {
                 path:"/contact",
                 element:<Contact/>,
+            },
+            {
+                path:"/quickMart",
+                element:<QuickMart/>,
             },
             {
                 path:"/restaurant/:id",

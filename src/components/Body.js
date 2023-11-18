@@ -64,7 +64,7 @@ export default function Body() {
     ): (
     <>
      <div className="searchbar-container">
-        <input className="searchbar" type="text" 
+        <input className="searchbar p-2 m-2 border" type="text" 
                 value={searchInput}
                 placeholder="Search For Restaurant, Cuisine or Dish....."
                 onChange={(e)=>

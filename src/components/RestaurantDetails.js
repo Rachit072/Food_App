@@ -2,11 +2,12 @@ import Shimmer from "./Shimmer";
 import {useParams} from "react-router-dom";
 import star from '../assets/star.png'
 import useRestaurant from "../utils/useRestaurant";
+import { IMG } from "../config";
 
 const RestaurantDetails=()=>{
 
-    const restaurant = useRestaurant(id);
     const {id} = useParams();
+    const restaurant = useRestaurant(id);
 
     return (!restaurant)?
     (<Shimmer/>)
@@ -14,8 +15,8 @@ const RestaurantDetails=()=>{
     <div className="MenuContainer">
         <div>
             <h1> Restaurant Id : {id}</h1>
-            <h1>{restaurant.cards[0].card.card.info.name}</h1>
-            <img style={{width:"280px",height:"150px",objectFit:"cover"}} src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + restaurant.cloudinaryImageId} alt="img" />
+            <h1 className="font-bold my-2 py-2">{restaurant.cards[0].card.card.info.name}</h1>
+            <img className="rounded" style={{width:"280px",height:"150px",objectFit:"cover"}} src={IMG + restaurant.cards[0].card.card.info.cloudinaryImageId} alt="img" />
             <p>{restaurant.cards[0].card.card.info.avgRating} 
                 <img style={{width:"14px"}} src={star} alt="star" /> 
             </p>
@@ -23,12 +24,12 @@ const RestaurantDetails=()=>{
             <p>{restaurant.cards[0].card.card.info.locality}</p>
         </div>
         <div className="Menu">
-            <h1>Menu</h1>
+            <h1 className="font-bold">Menu</h1>
             <ul>
                 {
-                (restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.card?.info).map((item)=>{
-                    <li key={item.id}>{item.name}</li>
-                })}
+                restaurant.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards.map((item)=>(
+                    <li key={item.card.info.id}>{item.card.info.name}</li>
+                ))}
             </ul>
         </div>
         

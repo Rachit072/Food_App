@@ -24,6 +24,9 @@ const Header =()=>{
                     <Link to='/about'>About</Link>                
                 </li>
                 <li>Cart</li>
+                <li>
+                    <Link to='/quickMart'>QuickMart</Link>                
+                </li>
             </ul> 
         </div>
         {   isLogged ? (<button className="login-btn" onClick={()=>{setIslogged(false)}}>LogIn</button>
