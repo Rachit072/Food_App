@@ -6,8 +6,14 @@
     width: 130px;
     padding: 4px 0px;
 }
+.root-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .header{
     display: flex;
+    border-bottom: 1px solid thistle;
     justify-content: space-between;
     margin: 2px;
     padding: 2px;
@@ -56,6 +62,7 @@
     padding:20px;
     
 }
+
 .footer{
     display: flex;
     flex-direction: column;
@@ -65,6 +72,7 @@
     text-align: center;
     background-color: darkgrey;
     height: 200px;
+    
 }
 .logo-f{
     width: 100px;
@@ -73,4 +81,5 @@
 .MenuContainer{
     display: flex;
     justify-content: space-evenly;
+
 }

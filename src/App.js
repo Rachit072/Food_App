@@ -9,13 +9,20 @@ import Error from "./components/Error";
 import Contact from "./components/Contact";
 import QuickMart from "./components/QuickMart";
 import RestaurantDetails from "./components/RestaurantDetails";
+import { Provider } from "react-redux";
+import store from "./utils/store";
+import Cart from "./components/Cart";
 
 const App=()=>{
-    return <>
+    return <Provider store={store}>
+        <div className="flex flex-col min-h-screen">
         <Header/>
+        <div className="flex-grow">
         <Outlet/>
+        </div>
         <Footer/>
-    </>
+        </div>
+    </Provider>
 }
 
 const appRouter = createBrowserRouter([
@@ -39,6 +46,10 @@ const appRouter = createBrowserRouter([
             {
                 path:"/quickMart",
                 element:<QuickMart/>,
+            },
+            {
+                path:"/cart",
+                element:<Cart/>,
             },
             {
                 path:"/restaurant/:id",
