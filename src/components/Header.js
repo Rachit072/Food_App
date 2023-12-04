@@ -26,19 +26,19 @@ const Header =()=>{
         <div className="nav-items">
            <ul>
                 <li>
-                    <Link to='/'>Home</Link>
+                    <Link className="py-1 px-2 hover:bg-red-800 hover:text-yellow-100 rounded" to='/'>Home</Link>
                 </li>
                 <li>
-                    <Link to='/contact'>Contact</Link>
+                    <Link className="py-1 px-2 hover:bg-red-800 hover:text-yellow-100 rounded" to='/contact'>Contact</Link>
                 </li>
                 <li>
-                    <Link to='/about'>About</Link>                
+                    <Link className="py-1 px-2 hover:bg-red-800 hover:text-yellow-100 rounded" to='/about'>About</Link>                
                 </li>
                 <li>
-                    <Link to='/quickMart'>QuickMart</Link>                
+                    <Link  className="py-1 px-2 hover:bg-red-800 hover:text-yellow-100 rounded"to='/quickMart'>QuickMart</Link>                
                 </li>
                 <li>
-                    <Link to ='/cart'>Cart-{cartItems.length}-Items</Link>
+                    <Link className="py-1 px-2 hover:bg-red-800 hover:text-yellow-100 rounded" to ='/cart'>Cart-{cartItems.length}-Items</Link>
                 </li>
             </ul> 
         </div>
@@ -47,7 +47,7 @@ const Header =()=>{
             ):(
                 <div>
                     <span className="text-red-700">{user.name}</span>
-                    <button className="login-btn" onClick={()=>{setIslogged(true)}} >LogOut</button>
+                    <button className="login-btn " onClick={()=>{setIslogged(true)}} >LogOut</button>
                 </div>
         )}
     </div>

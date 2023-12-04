@@ -1,8 +1,10 @@
 const About=()=>{
     return (
         <div>
-            <h1>About Page</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus quaerat corporis</p>
+            <h1 className="text-center text-3xl font-bold text-red-700 mb-4">About Page</h1>
+            <div className="text-center">
+                <p>Indulge Your Senses: A Culinary Journey with </p>
+            </div>
         </div>
     )
 }
