@@ -25,20 +25,20 @@ const Header =()=>{
         <Title/>
         <div className="nav-items">
            <ul>
-                <li>
+                <li className="flex items-center">
                     <Link className="py-1 px-2 hover:bg-red-800 hover:text-yellow-100 rounded" to='/'>Home</Link>
                 </li>
-                <li>
+                <li className="flex items-center">
                     <Link className="py-1 px-2 hover:bg-red-800 hover:text-yellow-100 rounded" to='/contact'>Contact</Link>
                 </li>
-                <li>
+                <li className="flex items-center">
                     <Link className="py-1 px-2 hover:bg-red-800 hover:text-yellow-100 rounded" to='/about'>About</Link>                
                 </li>
-                <li>
+                <li className="flex items-center">
                     <Link  className="py-1 px-2 hover:bg-red-800 hover:text-yellow-100 rounded"to='/quickMart'>QuickMart</Link>                
                 </li>
-                <li>
-                    <Link className="py-1 px-2 hover:bg-red-800 hover:text-yellow-100 rounded" to ='/cart'>Cart-{cartItems.length}-Items</Link>
+                <li className="flex items-center">
+                    <Link className="py-1 px-2  hover:bg-red-800 hover:text-yellow-100 rounded" to ='/cart'>Cart {cartItems.length>0?<span className="inline-block bg-gray-500 text-white rounded-full text-center text-xs h-4 w-4 items-center justify-center">{cartItems.length}</span>:null}</Link>
                 </li>
             </ul> 
         </div>
