@@ -1,9 +1,13 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const OrderPage = () => {
-    const playAnotherOrder = () => {
-        // window.location.reload(); 
-    };
+  const navigate = useNavigate();
+
+  const playAnotherOrder = () => {
+    navigate('/');
+    window.location.reload();
+  };
   return (
     <div className="flex items-center justify-center m-5">
         <div className="bg-white p-8 rounded-md shadow-md max-w-md text-center">
