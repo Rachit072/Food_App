@@ -9,7 +9,7 @@ export default function Shimmer() {
      <div className="shimmer-card">
      <div className="shimmer-content">
        <div className="shimmer-line shimmer-line-short"></div>
-       <div style={{fontWeight:"bold",color:"red"}}>Please Allow CORS...!</div>
+       <div style={{fontWeight:"bold",color:"red"}}></div>
        <div className="shimmer-line shimmer-line-long"></div>
      </div>
    </div>

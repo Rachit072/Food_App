@@ -1,5 +1,15 @@
-export const IMG = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" 
+export const IMG = "https://corsproxy.org/?" + encodeURIComponent("https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" )
 
+export const swiggy_api =
+  "https://corsproxy.org/?" +
+  encodeURIComponent(
+    "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6304203&lng=77.21772159999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+  );
+  export const swiggy_menu_api =
+  "https://corsproxy.org/?" +
+  encodeURIComponent(
+    "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6126255&lng=77.04108959999999&restaurantId="
+  );
 export const restaurantList = [
         {
           "info": {

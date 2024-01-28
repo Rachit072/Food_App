@@ -17,8 +17,8 @@ const Header =()=>{
     const isonline = useOnline();
     const {user} = useContext(UserContext);
     const cartItems = useSelector((store) =>store.cart.items);
-    console.log(cartItems);
-    console.log("a");
+    // console.log(cartItems);
+    // console.log("a");
 
     return <>
     <div className="header">
@@ -42,14 +42,13 @@ const Header =()=>{
                 </li>
             </ul> 
         </div>
-        <div>{isonline?<FontAwesomeIcon  icon={faCircle} style={{color: "#04950e",}} />:<FontAwesomeIcon icon={faCircle} style={{color: "#e60505",}} />}</div> 
-        {   isLogged ? (<button className="login-btn" onClick={()=>{setIslogged(false)}}>LogIn</button>
-            ):(
-                <div>
-                    <span className="text-red-700">{user.name}</span>
-                    <button className="login-btn " onClick={()=>{setIslogged(true)}} >LogOut</button>
-                </div>
-        )}
+        {/* <div>{isonline?<FontAwesomeIcon  icon={faCircle} style={{color: "#04950e",}} />:<FontAwesomeIcon icon={faCircle} style={{color: "#e60505",}} />}</div>  */}
+        {/*<div> { isLogged ? <button className="login-btn" onClick={()=>{setIslogged(false)}}>LogIn</button>:
+                <div>{/* <span className="text-red-700">{user.name}</span> }
+                <button className="login-btn " onClick={()=>{setIslogged(true)}} >LogOut</button></div>}
+        </div>
+        */}
+        <Link to="/login"><button className="login-btn">Login</button></Link>
     </div>
     </>
 }

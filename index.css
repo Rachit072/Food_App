@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .logo{
-    width: 130px;
+    width: 110px;
     padding: 4px 0px;
 }
 .root-img{
@@ -17,13 +17,17 @@
     justify-content: space-between;
     margin: 2px;
     padding: 2px;
+    font-family: monospace;
+    font-size: 16px;
+    font-weight: 700;
 }
 .login-btn{
     height: 50px;
     width: 100px;
-    margin-top:5px ;
+    margin-top:10px;
     padding: 2px 10px;
     border: none;
+    color: rgb(219, 76, 33);
     background-color: transparent;
 }
 .searchbar-container{
@@ -33,14 +37,17 @@
 }
 .searchbar{
     width: 550px;
-    height: 25px;
+    height: 35px;
     color: darkgray;
+    padding: 5px 10px;
 }
 .searchbtn{
     height: 31px;
 }
 .nav-items>ul{
     display: flex;
+    color: rgb(83, 188, 237);
+    margin-top: 5px;
 }
 .nav-items>ul>li{
     list-style: none;

@@ -13,6 +13,7 @@ import { Provider } from "react-redux";
 import store from "./utils/store";
 import Cart from "./components/Cart";
 import OrderPage from "./components/OrderPage";
+import { Login } from "./components/Login";
 
 const App=()=>{
     return <Provider store={store}>
@@ -59,6 +60,10 @@ const appRouter = createBrowserRouter([
             {
                 path:"/order",
                 element:<OrderPage/>,
+            },
+            {
+                path:"/login",
+                element:<Login/>,
             }
         ]
     }

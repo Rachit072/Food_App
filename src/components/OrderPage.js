@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const OrderPage = () => {
   const navigate = useNavigate();
 
-  const playAnotherOrder = () => {
+  const placeAnotherOrder = () => {
     navigate('/');
     window.location.reload();
   };
@@ -13,8 +13,8 @@ const OrderPage = () => {
         <div className="bg-white p-8 rounded-md shadow-md max-w-md text-center">
             <h1 className="text-2xl font-bold text-green-500 mb-4">Your Order is Placed Successfully!</h1>
             <p className="text-gray-700">Thank you for choosing our service. Your delicious food is on the way!</p>
-            <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue" onClick={playAnotherOrder}>
-                Play Another Order
+            <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue" onClick={placeAnotherOrder}>
+                Place Another Order
             </button>
         </div>
     </div>
