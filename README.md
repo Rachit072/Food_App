@@ -5,4 +5,5 @@ Used Swiggy public API for Restaurants data
 Search restaurants by name
 ## Tech stack used : CSS, React & Redux.
 
-#3 Description:  A Food ordering website that utilizes Swiggy's API
+## Description: 
+A platform for ordering food online that integrates with Swiggy's API, enabling users to browse a diverse selection of restaurants and conveniently place orders for their preferred meals.
