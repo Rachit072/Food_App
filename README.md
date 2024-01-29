@@ -12,9 +12,9 @@ A platform for ordering food online that integrates with Swiggy's API, enabling 
 
 # Getting Started:
 ## Clone the Repository:
-git clone https://github.com/Rachit072/Capture-App-MERN.git
+git clone https://github.com/Rachit072/Food_App.git
 ## Navigate to the Project Directory:
-cd Capture-App-MERN
+cd Food_App
 ## Install Dependencies:
 npm install
 ## Start the App:
