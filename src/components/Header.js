@@ -1,11 +1,12 @@
-import { useState,useContext } from "react";
+import { useEffect } from "react";
 import {Link} from 'react-router-dom';
 import logo from "../assets/TastyTracks.png"
 import UserContext from "../utils/UserContext";
 import useOnline from "../utils/useOffline";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import { logout,signIn } from "../utils/loginSlice";
 
 
 const Title = () =>(
@@ -13,13 +14,22 @@ const Title = () =>(
 ); 
 
 const Header =()=>{
-    const[isLogged,setIslogged] = useState(true);
     const isonline = useOnline();
-    const {user} = useContext(UserContext);
+    const user = useSelector((store) => store.login.user)
     const cartItems = useSelector((store) =>store.cart.items);
-    // console.log(cartItems);
-    // console.log("a");
+    const dispatch = useDispatch();
+    const isLogged = useSelector((store)=>store.login.isAuthenticated)
 
+    const handleLogut=()=>{
+        dispatch(logout());
+        localStorage.removeItem('user');
+    }
+    useEffect(()=>{
+        const userData = JSON.parse(localStorage.getItem('user'))
+        if(userData) {
+            dispatch(signIn(userData))
+        }
+    },[dispatch])
     return <>
     <div className="header">
         <Title/>
@@ -43,12 +53,15 @@ const Header =()=>{
             </ul> 
         </div>
         {/* <div>{isonline?<FontAwesomeIcon  icon={faCircle} style={{color: "#04950e",}} />:<FontAwesomeIcon icon={faCircle} style={{color: "#e60505",}} />}</div>  */}
-        {/*<div> { isLogged ? <button className="login-btn" onClick={()=>{setIslogged(false)}}>LogIn</button>:
-                <div>{/* <span className="text-red-700">{user.name}</span> }
-                <button className="login-btn " onClick={()=>{setIslogged(true)}} >LogOut</button></div>}
+        {<div> 
+            { !isLogged ? <Link to="/login"><button className="login-btn">Login</button></Link>:
+                <div>
+                    {<span className="text-blue-320">{user?.firstName || user?.email}</span> }
+                    <button className="login-btn " onClick={handleLogut} >LogOut</button>
+                </div>
+            }
         </div>
-        */}
-        <Link to="/login"><button className="login-btn">Login</button></Link>
+        }
     </div>
     </>
 }

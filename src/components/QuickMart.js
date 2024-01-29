@@ -15,7 +15,7 @@ const Section=({title,description,isVisible,setIsVisible})=>{
 function QuickMart(){
     const [visibleSection,setVisibleSection]=useState(null);
     return (<>
-        <h1 className="font-bold p-2 m-2 text-3xl">QuickMart</h1>
+        <h1 className="font-bold p-2 m-2 text-3xl" style={{color:'#53bced'}}>QuickMart <span> - Coming Soon</span></h1>
         <Section
         title={"About QuickMart"}
         description={"QuickMart is your go-to destination for swift and convenient shopping experiences. As the name suggests, we prioritize speed without compromising on quality. Imagine a world where your grocery and everyday essentials are just a click away, and they arrive at your doorstep in no time. At QuickMart, we understand the pace of modern life, and we're here to make your shopping as fast and hassle-free as possible. With a curated selection of high-quality products, ranging from fresh produce to household necessities, we aim to simplify your daily routines."}

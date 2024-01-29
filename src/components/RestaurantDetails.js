@@ -4,19 +4,30 @@ import star from '../assets/star.png'
 import useRestaurant from "../utils/useRestaurant";
 import { IMG } from "../config";
 import { additem } from "../utils/cartSlice";
-import { useDispatch } from "react-redux/es/exports";
+import { useDispatch, useSelector } from "react-redux";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const RestaurantDetails=()=>{
-
     const {id} = useParams();
     const restaurant = useRestaurant(id);
-
+    const islogged = useSelector((store)=>store.login.isAuthenticated)
     const dispatch = useDispatch();
 
     const addFoodItem=(item)=>{
-        dispatch(additem(item))
+        if (islogged) {
+            dispatch(additem(item));
+          } else {
+            toast.error("Please Login First!", {
+                position: "top-right",
+                autoClose: 3000, 
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+        }
     }
-
     return (!restaurant)?
     (<Shimmer/>)
     :(
@@ -57,12 +68,12 @@ const RestaurantDetails=()=>{
                         className="flex-2 rounded bg-blue-100 border border-blue-700 text-blue-700 px-2 py-1 m-1"
                         onClick={() => addFoodItem(item)}
                       >Add + 
-                        </button>
+                      </button>
                     </li>
                 ))}
             </ul>
         </div>
-        
+        <ToastContainer />
     </div>
    ) 
 }
