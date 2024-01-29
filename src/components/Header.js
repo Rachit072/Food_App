@@ -1,12 +1,11 @@
 import { useEffect } from "react";
 import {Link} from 'react-router-dom';
 import logo from "../assets/TastyTracks.png"
-import UserContext from "../utils/UserContext";
 import useOnline from "../utils/useOffline";
 import { useSelector,useDispatch } from "react-redux";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { logout,signIn } from "../utils/loginSlice";
+import { clearCart } from "../utils/cartSlice";
+import {useNavigate} from 'react-router-dom';
 
 
 const Title = () =>(
@@ -18,18 +17,21 @@ const Header =()=>{
     const user = useSelector((store) => store.login.user)
     const cartItems = useSelector((store) =>store.cart.items);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const isLogged = useSelector((store)=>store.login.isAuthenticated)
 
     const handleLogut=()=>{
         dispatch(logout());
+        dispatch(clearCart());
         localStorage.removeItem('user');
+        navigate('/')
     }
     useEffect(()=>{
         const userData = JSON.parse(localStorage.getItem('user'))
         if(userData) {
             dispatch(signIn(userData))
         }
-    },[dispatch])
+    },[dispatch,signIn])
     return <>
     <div className="header">
         <Title/>
