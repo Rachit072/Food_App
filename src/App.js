@@ -14,6 +14,7 @@ import store from "./utils/store";
 import Cart from "./components/Cart";
 import OrderPage from "./components/OrderPage";
 import { Login } from "./components/Login";
+import PaymentPage from "./components/PaymentPage";
 
 const App=()=>{
     return <Provider store={store}>
@@ -60,6 +61,10 @@ const appRouter = createBrowserRouter([
             {
                 path:"/order",
                 element:<OrderPage/>,
+            },
+            {
+                path:"/payment",
+                element:<PaymentPage/>,
             },
             {
                 path:"/login",

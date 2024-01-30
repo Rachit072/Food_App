@@ -21,7 +21,7 @@ const Cart =()=>{
             <FoodCard key={item?.card?.info?.id} {...item?.card?.info} total={totalPrice} />
         )}
         {totalPrice>0?<p className="font-bold p-2 m-2 mr-20 flex justify-end">Total Price :<span> &#8377;</span>{totalPrice / 100}</p> :null}
-        {totalPrice>0?<Link to="/order">
+        {totalPrice>0?<Link to="/payment">
             <button className="bg-red-100 text-red-700 border border-red-700 rounded px-2 m-4 float-right">
                 Place Order
             </button>
