@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux/es/exports';
 import {Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCreditCard, faMobile, faWallet, faMoneyBill } from '@fortawesome/free-solid-svg-icons';
+import { clearCart } from '../utils/cartSlice';
 
 const PaymentPage = () => {
   const [paymentMethod, setPaymentMethod] = useState('');
+  const dispatch = useDispatch();
 
   const handleUPIPayment = () => {
     setPaymentMethod('UPI');
@@ -21,7 +24,9 @@ const PaymentPage = () => {
   const handleCODPayment = () => {
     setPaymentMethod('Cash on Delivery');
   };
-
+  const handlePayment=()=>{
+    dispatch(clearCart());
+}
   return (
     <div className="max-w-md mx-auto mt-6 p-4 border rounded-md shadow-md flex flex-col">
       <h2 className="text-2xl text-red-500 font-bold mb-4">Select Payment Method</h2>
@@ -48,14 +53,14 @@ const PaymentPage = () => {
         </label>
       </div>
       <div className="mb-4 flex items-center">
-        <input type="radio" name="paymentMethod" id="cod" onChange={handleCODPayment} className="mr-2" />
+        <input type="radio" name="paymentMethod" id="cod" onChange={handleCODPayment} className="mr-2" defaultChecked />
         <label htmlFor="cod" className="cursor-pointer flex items-center">
           <FontAwesomeIcon icon={faMoneyBill} className="mr-2" />
           Cash on Delivery
         </label>
       </div>
       <Link to="/order" className='ml-auto'>
-        <button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
+        <button onClick={handlePayment} className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
           Proceed to Payment
         </button>
       </Link>
