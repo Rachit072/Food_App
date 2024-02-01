@@ -5,13 +5,14 @@ import {FoodCard} from "./FoodCard";
 
 const Cart =()=>{
 
-    const dispatch=useDispatch()
+    const dispatch = useDispatch()
     const cartItems = useSelector(store => store.cart.items)
-    const totalPrice = cartItems.reduce((total, item) => total + item.card.info.price, 0);
+    const totalPrice = cartItems.reduce((total, item) => total + (item.card.info.price ?? item.card.info.defaultPrice), 0);
 
     const handleClearCart=()=>{
         dispatch(clearCart());
     }
+  
     return <div>
         <h1 className="font-bold p-2 m-2">Your Cart</h1>
         {totalPrice>0?<button className="bg-red-100 text-red-700 border border-red-700 rounded px-2 m-4 " 

@@ -93,3 +93,7 @@
 .image-container{
     mix-blend-mode:multiply;
 }
+.Menu{
+    width: 50%;
+    font-family: Okra, Helvetica, sans-serif
+}
