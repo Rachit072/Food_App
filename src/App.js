@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider,Outlet } from "react-router-dom";
 import About from "./components/About";
@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
-import QuickMart from "./components/QuickMart";
+// import QuickMart from "./components/QuickMart";
 import RestaurantDetails from "./components/RestaurantDetails";
 import { Provider } from "react-redux";
 import store from "./utils/store";
@@ -15,6 +15,9 @@ import Cart from "./components/Cart";
 import OrderPage from "./components/OrderPage";
 import { Login } from "./components/Login";
 import PaymentPage from "./components/PaymentPage";
+import Shimmer from "./components/Shimmer";
+
+const QuickMart = lazy(()=>import('./components/QuickMart'));
 
 const App=()=>{
     return <Provider store={store}>
@@ -48,7 +51,10 @@ const appRouter = createBrowserRouter([
             },
             {
                 path:"/quickMart",
-                element:<QuickMart/>,
+                element:
+                <Suspense fallback={<Shimmer/>}>
+                    <QuickMart/>
+                </Suspense>,
             },
             {
                 path:"/cart",
