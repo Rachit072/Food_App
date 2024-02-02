@@ -1,8 +1,8 @@
 # Food_App
 ## Features :
-Shimmer UI for better user experience
-Lazy loading
-Used Swiggy public API for Restaurants data
+Shimmer UI for better user experience,
+Lazy loading,
+Used Swiggy public API for Restaurants data,
 Search restaurants by name
 
 ## Tech stack used : 
