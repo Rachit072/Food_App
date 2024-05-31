@@ -42,18 +42,18 @@ const RestaurantDetails=()=>{
     <div className="MenuContainer">
         <div>
             {/* <h1> Restaurant Id : {id}</h1> */}
-            <h1 className="font-bold text-xl my-2 py-2">{restaurant?.cards[0]?.card?.card?.info?.name}</h1>
+            <h1 className="font-bold text-xl my-2 py-2">{restaurant?.cards[2]?.card?.card?.info?.name}</h1>
             <div className="flex">
             <p className="flex item-center font-bold my-2 bg-green-700 p-1 pl-1.5 text-white rounded w-12">
-                {restaurant?.cards[0]?.card?.card?.info?.avgRating}
+                {restaurant?.cards[2]?.card?.card?.info?.avgRating}
                 <img className="p-auto m-auto h-3 w-3 " src={star} alt="star" />
             </p>
-            <p className="item-center py-auto my-auto px-2 text-gray-500">{restaurant?.cards[0]?.card?.card?.info?.totalRatingsString}</p>
+            <p className="item-center py-auto my-auto px-2 text-gray-500">{restaurant?.cards[2]?.card?.card?.info?.totalRatingsString}</p>
             </div>
             <img
                 className="rounded"
                 style={{ width: "280px", height: "150px", objectFit: "cover" }}
-                src={IMG + restaurant?.cards[0]?.card?.card?.info?.cloudinaryImageId}
+                src={IMG + restaurant?.cards[2]?.card?.card?.info?.cloudinaryImageId}
                 alt="img"
             />
             <p
@@ -65,20 +65,20 @@ const RestaurantDetails=()=>{
                 whiteSpace: "nowrap",
                 }}
             >
-            {restaurant?.cards[0]?.card?.card?.info?.cuisines?.join(", ")}
+            {restaurant?.cards[2]?.card?.card?.info?.cuisines?.join(", ")}
             </p>
             <div className="flex flex-col py-2">
                 <p className="w-21 text-xs">
-                    {restaurant?.cards[0]?.card?.card?.info?.labels[1]?.message}
+                    {restaurant?.cards[2]?.card?.card?.info?.labels[1]?.message}
                 </p>            
             </div>
-            <p>{restaurant?.cards[0]?.card?.card?.info?.costForTwoMessage}</p>
+            <p>{restaurant?.cards[2]?.card?.card?.info?.costForTwoMessage}</p>
         </div>
         <div className="Menu">
             <h1 className="font-bold py-2">Menu</h1>
             <ul>
-                {restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards?.length > 0 ? ( 
-                    restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards?.map((item) => (
+                {restaurant?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards?.length > 0 ? ( 
+                    restaurant?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards?.map((item) => (
                     <li className="flex space-evenly" key={item?.card?.info?.id}>
                         <div className="flex-1 py-2 pr-4 mr-8" >
                             <img className="rounded " src={IMG+item?.card?.info?.imageId} alt="" width={70} onError={handleImageError} />
